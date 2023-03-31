@@ -18,8 +18,7 @@ spec:
     stage('Cloning Repository') {
       steps {
         container('maven') {
-           git branch: 'main', credentialsId: '099a195e-63e0-47db-b4c2-1e7e4faf8314', url: 'git@github.com:SakshiVelukar/java-app.git'
-       }
+            git branch: 'main', credentialsId: 'b3ed1e05-7887-4d9b-bfbf-780d442a4426', url: 'git@github.com:SakshiVelukar/java-app.git'       }
      }
     }
 
