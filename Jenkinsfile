@@ -1,7 +1,6 @@
 pipeline {
   agent {
     kubernetes {
-        label 'jenkins-slave'
         yaml '''
 kind: Pod
 spec:
