@@ -1,21 +1,25 @@
 pipeline {
-  agent {
-    kubernetes {
-        label 'jenkins-slave'
-        yaml '''
-apiVersion: v1
-kind: Pod
-metadata:
-  name: maven-pod
-spec:
-  containers:
-    - name: mavenimage
-      image: maven:3.6.3-jdk-8
-      command: ["sleep", "infinity"]
-     
-'''
-   }
-  }
+   agent {
+        kubernetes {
+            label 'jenkins-slave'
+            defaultContainer 'jnlp'
+            yaml """
+                apiVersion: v1
+                kind: Pod
+                metadata:
+                  labels:
+                    app: my-pod
+                  name: my-pod
+                spec:
+                  containers:
+                    - name: maven
+                      image: maven:latest
+                      command:
+                        - 'sleep'
+                        - 'infinity'
+            """
+        }
+    }
    
    stages {
 
