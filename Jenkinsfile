@@ -9,8 +9,8 @@ metadata:
   name: maven-pod
 spec:
   containers:
-    - name: maven:3.6.3-jdk-8
-      image: maven:latest
+    - name: mavenimage
+      image: maven:3.6.3-jdk-8
       command: ["sleep", "infinity"]
      
 '''
