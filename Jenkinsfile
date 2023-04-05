@@ -3,12 +3,16 @@ pipeline {
     kubernetes {
         label 'jenkins-slave'
         yaml '''
+apiVersion: v1
 kind: Pod
+metadata:
+  name: maven-pod
 spec:
   containers:
-  - name: maven
-    image: maven:3.6.3-jdk-8
-    imagePullPolicy: Always
+    - name: maven:3.6.3-jdk-8
+      image: maven:latest
+      command: ["sleep", "infinity"]
+     
 '''
    }
   }
